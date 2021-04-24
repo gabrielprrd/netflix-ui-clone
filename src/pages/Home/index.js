@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // Components
+import Header from '../../components/Header';
 import Row from '../../components/Row/index';
 
 // Data
@@ -25,10 +26,11 @@ export default function Home() {
 
   return (
     <div>
+      <Header />
       {list.map((info) => {
         return (
           <div>
-            <Row row={info} />
+            <Row row={info} key={info.slug} />
           </div>
         );
       })}

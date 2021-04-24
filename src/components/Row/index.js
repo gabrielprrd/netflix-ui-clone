@@ -15,7 +15,7 @@ export default function Row({ row }) {
   };
 
   const handleNextIconClick = () => {
-    if (rowPosition <= -300) {
+    if (rowPosition <= -200) {
       return;
     }
     setRowPosition(rowPosition - 50);
@@ -34,8 +34,8 @@ export default function Row({ row }) {
         {row.items.results.map((item) => {
           const { id, name, poster_path } = item;
           return (
-            <div>
-              <div key={id}>
+            <div key={id}>
+              <div>
                 <img
                   src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
                   alt={name}
