@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
+/* Font */
+@import url(
+  'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
+);
+
     *, *::before, *::after  {
     /* reset */
     box-sizing: border-box;
@@ -15,7 +20,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     background: black;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
   }
 `;
 

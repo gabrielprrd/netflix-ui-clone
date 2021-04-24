@@ -7,10 +7,11 @@ import Row from '../../components/Row/index';
 import store from '../../store/store';
 
 // Styles
-//import * as S from './style';
+//import * as S from './styles';
 
 export default function Home() {
   const [list, setList] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -24,12 +25,10 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Home Page</h1>
-
-      {list.map((row) => {
+      {list.map((info) => {
         return (
           <div>
-            <Row row={row} />
+            <Row row={info} />
           </div>
         );
       })}
