@@ -38,7 +38,7 @@ export default function Register() {
             pattern: {
               value: userNameRegex,
               message:
-                'Username should contain only alphanumeric characters, underscore and dot',
+                'Username should contain only alphanumeric characters, underscore and dots',
             },
           })}
           id="username"
@@ -47,6 +47,7 @@ export default function Register() {
         {errors.username && <p>{errors.username.types.required}</p>}
         {errors.username && <p>{errors.username.types.minLength}</p>}
         {errors.username && <p>{errors.username.types.maxLength}</p>}
+        {errors.username && <p>{errors.username.types.pattern}</p>}
 
         <label htmlFor="fullname">Full name:</label>
         <input
