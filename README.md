@@ -1,8 +1,11 @@
 ## Todo:
 
-- "Create Account" Form
-- Form Validation
+- Display error in form validation for register
+
+- Style Create Account form
+- Integrate validation with Yup when I need schema validation
+- Add proper README
 - Fix row behavior
-- Responsive
+- Make Responsive
 - Genders array
 - Algorithm to randomize the highlighted movie
