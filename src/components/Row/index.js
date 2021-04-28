@@ -12,25 +12,14 @@ import { SelectedMovieContext } from '../../store/SelectedMovieProvider';
 
 // Store
 import store from '../../store/store';
-
-// Types
-import MediaType from '../../types/MediaType';
-import { ContactSupportOutlined } from '@material-ui/icons';
+//import MovieContainer from './MovieContainer';
 
 export default function Row({ row }) {
   const [rowPosition, setRowPosition] = useState(0);
   const { setSelectedMovie } = useContext(SelectedMovieContext);
 
   const selectMovie = (id) => {
-    store.getMovieInfo(id, MediaType.MOVIE).then((data) => {
-      if (data.success === false) {
-        store.getMovieInfo(id, MediaType.TV).then((payload) => {
-          console.log(payload);
-        });
-      } else {
-        console.log(data);
-      }
-    });
+    store.getMovieInfo(id).then((data) => setSelectedMovie(data));
   };
 
   const handleBeforeIconClick = () => {
@@ -60,16 +49,14 @@ export default function Row({ row }) {
       <S.MoviesRow rowPosition={rowPosition}>
         {row.items.results.map((item) => {
           const { id, name, poster_path } = item;
+
           return (
-            <div key={id} onClick={() => selectMovie(id)}>
-              <div>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-                  alt={name}
-                ></img>
-                <h2>{name}</h2>
-              </div>
-            </div>
+            <S.MovieContainer key={id} onClick={() => selectMovie(id)}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
+                alt={name}
+              ></img>
+            </S.MovieContainer>
           );
         })}
       </S.MoviesRow>

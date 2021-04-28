@@ -9,16 +9,13 @@ import TopPageMovie from '../../components/TopPageMovie/index';
 import store from '../../store/store';
 import { SelectedMovieContext } from '../../store/SelectedMovieProvider';
 
-// Types
-import MediaType from '../../types/MediaType';
-
 // Styles
 import * as S from './styles';
 
 export default function Home() {
   const [list, setList] = useState([]);
   const [isSelectedMovieReady, setSelectedMovieReady] = useState(false);
-  const { selectedMovie, setSelectedMovie } = useContext(SelectedMovieContext);
+  const { setSelectedMovie } = useContext(SelectedMovieContext);
 
   useEffect(() => {
     function fetchData() {
@@ -35,21 +32,15 @@ export default function Home() {
             (category) => category.slug === 'trending'
           )[0].items.results[randomIndex];
 
-          store
-            .getMovieInfo(initialSelectedMovie.id, MediaType.MOVIE)
-            .then((movieInfo) => {
-              setSelectedMovie(movieInfo);
-              setSelectedMovieReady(true);
-            });
+          store.getMovieInfo(initialSelectedMovie.id).then((movieInfo) => {
+            setSelectedMovie(movieInfo);
+            setSelectedMovieReady(true);
+          });
         });
     }
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log(selectedMovie);
-  }, [selectedMovie]);
 
   return (
     <div>
