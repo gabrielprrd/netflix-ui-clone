@@ -9,6 +9,9 @@ import TopPageMovie from '../../components/TopPageMovie/index';
 import store from '../../store/store';
 import { SelectedMovieContext } from '../../store/SelectedMovieProvider';
 
+// Types
+import MediaType from '../../types/MediaType';
+
 // Styles
 import * as S from './styles';
 
@@ -19,15 +22,26 @@ export default function Home() {
 
   useEffect(() => {
     function fetchData() {
-      store.getHomeList().then((data) => {
-        setList(data);
-        const initialSelectedMovie = data.filter(
-          (category) => category.slug === 'originals'
-        )[0].items.results[0];
-        setSelectedMovie(initialSelectedMovie);
-        setSelectedMovieReady(true);
-        console.log(selectedMovie);
-      });
+      store
+        .getHomeList()
+        .then((data) => {
+          setList(data);
+          return data;
+        })
+        .then((data) => {
+          const randomIndex = Math.floor(Math.random() * 4);
+
+          const initialSelectedMovie = data.filter(
+            (category) => category.slug === 'trending'
+          )[0].items.results[randomIndex];
+
+          store
+            .getMovieInfo(initialSelectedMovie.id, MediaType.MOVIE)
+            .then((movieInfo) => {
+              setSelectedMovie(movieInfo);
+              setSelectedMovieReady(true);
+            });
+        });
     }
 
     fetchData();

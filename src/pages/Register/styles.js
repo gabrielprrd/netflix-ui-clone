@@ -31,6 +31,7 @@ export const StyledForm = styled.form`
 `;
 
 export const SubmitButton = styled.input`
+  cursor: pointer;
   border: none;
   border-radius: 3px;
   align-self: center;

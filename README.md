@@ -13,7 +13,7 @@ Single Page Application cloning Netflix's UI, with couple changes.
 
 ## Installation
 
-To run locally on development mode, simply clone this repo and then:
+To run locally on development mode, you'll need Node.js installed. Then simply clone this repo and:
 
 ```sh
 $ npm install
@@ -24,7 +24,7 @@ $ npm start
 
 ## Todo:
 
-- Highlight movie on click
+- Highlight movie on click [currently working on it]
 - Style Register form
 - Add header navigation
 - Fix header behavior on scroll

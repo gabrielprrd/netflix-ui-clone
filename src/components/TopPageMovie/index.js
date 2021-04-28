@@ -5,26 +5,25 @@ import * as S from './styles';
 import { SelectedMovieContext } from '../../store/SelectedMovieProvider';
 
 export default function TopPageMovie() {
-  const { selectedMovie, setSelectedMovie } = useContext(SelectedMovieContext);
+  const { selectedMovie } = useContext(SelectedMovieContext);
   const {
-    name,
+    title,
     overview,
     backdrop_path,
     vote_average,
-    categories,
-    first_air_date,
+    genres,
+    release_date,
   } = selectedMovie;
 
-  const releaseDate = first_air_date.split('-')[0];
-
+  // release_date
   return (
     <S.HighlightedMovieContainer backdrop_path={backdrop_path}>
       <S.BgOverrideContainer>
         <S.TextContainer>
-          <h1>{name}</h1>
+          <h1>{title}</h1>
           <S.VoteDateContainer>
             <S.VoteParagraph>{vote_average} points</S.VoteParagraph>
-            <S.BoldParagraph>{releaseDate}</S.BoldParagraph>
+            <S.BoldParagraph>{release_date.split('-')[0]}</S.BoldParagraph>
           </S.VoteDateContainer>
           <S.OverviewContainer>
             <S.Paragraph>{overview}</S.Paragraph>

@@ -1,3 +1,5 @@
+import MediaType from '../types/MediaType';
+
 // No problem to expose api key since the number of request is unlimited
 const api_key = '5752c9c99862ec40e39c92ba2595bdee';
 const base_url = 'https://api.themoviedb.org/3';
@@ -70,10 +72,10 @@ export default {
     let info = {};
     if (movieId) {
       switch (type) {
-        case 'movie':
+        case MediaType.MOVIE:
           info = await getList(`/movie/${movieId}?&api_key=${api_key}`);
           break;
-        case 'tv':
+        case MediaType.TV:
           info = await getList(`/tv/${movieId}?&api_key=${api_key}`);
           break;
         default:
@@ -81,5 +83,6 @@ export default {
           break;
       }
     }
+    return info;
   },
 };
