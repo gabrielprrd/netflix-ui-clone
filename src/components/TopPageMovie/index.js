@@ -29,6 +29,17 @@ export default function TopPageMovie() {
             <S.OverviewContainer>
               <S.Paragraph>{overview}</S.Paragraph>
             </S.OverviewContainer>
+            <div>
+              <p>
+                Genres:{' '}
+                {genres.map((item, index) => (
+                  <span>
+                    {item.name}
+                    {index !== genres.length - 1 && <span>,</span>}{' '}
+                  </span>
+                ))}
+              </p>
+            </div>
             <S.ButtonsContainer>
               <S.WatchButton>Watch</S.WatchButton>
               <S.AddToListButton>+ My List</S.AddToListButton>

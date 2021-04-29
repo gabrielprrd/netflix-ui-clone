@@ -35,6 +35,8 @@ export const MovieContainer = styled.div`
   flex: 1 1 0px;
   transition: transform 500ms;
   z-index: 99;
+  margin: 0 3px;
+  cursor: pointer;
 
   img {
     display: block;

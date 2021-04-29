@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MovieRowsContainer = styled.div`
-  margin-top: -80px;
+  padding: 20px;
+  margin-top: -140px;
   z-index: 99;
 `;

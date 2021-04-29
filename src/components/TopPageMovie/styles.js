@@ -87,8 +87,10 @@ export const Paragraph = styled.p``;
 
 export const BoldParagraph = styled(Paragraph)`
   font-weight: 1000;
+  margin-left: 20px;
 `;
 
-export const VoteParagraph = styled(BoldParagraph)`
+export const VoteParagraph = styled.p`
   color: #46d369;
+  font-weight: 1000;
 `;
