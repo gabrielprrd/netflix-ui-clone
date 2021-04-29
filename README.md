@@ -24,14 +24,11 @@ $ npm start
 
 ## Todo:
 
-- Highlight movie on click [currently working on it]
-- Style Register form
-- Add header navigation
 - Fix header behavior on scroll
 - Fix movie row behavior
 - Make Responsive
-- Genders array
-- Algorithm to randomize the highlighted movie
+- Style Register form
+- Turn register page as Home and then redirect to the movies after fake login, for now
 - Integrate validation with Yup when I need schema validation
 - Footer with credits
 
