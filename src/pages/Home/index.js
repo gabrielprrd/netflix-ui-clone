@@ -46,7 +46,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
       {isSelectedMovieReady ? (
         <TopPageMovie />
@@ -60,6 +60,6 @@ export default function Home() {
           return <Row row={info} key={info.slug} />;
         })}
       </S.MovieRowsContainer>
-    </div>
+    </>
   );
 }

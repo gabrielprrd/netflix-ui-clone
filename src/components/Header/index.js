@@ -8,23 +8,20 @@ export default function Header() {
   const [headerColor, setHeaderColor] = useState('transparent');
 
   //not working
-  /*useEffect(() => {
+  useEffect(() => {
     const checkYPosition = () => {
-      if (window.scrollY >= 0) {
-        setHeaderColor('black');
-        console.log(headerColor);
-      } else {
-        setHeaderColor('transparent');
-        console.log(headerColor);
-      }
+      window.scrollY >= 100
+        ? setHeaderColor('black')
+        : setHeaderColor('transparent');
     };
 
     window.addEventListener('scroll', checkYPosition);
 
+    // clean up function
     return () => {
       window.removeEventListener('scroll', checkYPosition);
     };
-  }, [window.scrollY]);*/
+  }, [window.scrollY]);
 
   return (
     <S.Header headerColor={headerColor}>

@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body {
-    height: 100vh;
     width: 100vw;
     background: black;
     color: white;
