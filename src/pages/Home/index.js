@@ -12,6 +12,9 @@ import { SelectedMovieContext } from '../../store/SelectedMovieProvider';
 // Styles
 import * as S from './styles';
 
+// Assets
+import { ReactComponent as LoadingIcon } from '../../assets/svg/loading.svg';
+
 export default function Home() {
   const [list, setList] = useState([]);
   const [isSelectedMovieReady, setSelectedMovieReady] = useState(false);
@@ -45,7 +48,13 @@ export default function Home() {
   return (
     <div>
       <Header />
-      {isSelectedMovieReady && <TopPageMovie />}
+      {isSelectedMovieReady ? (
+        <TopPageMovie />
+      ) : (
+        <S.LoadingIconContainer>
+          <LoadingIcon />
+        </S.LoadingIconContainer>
+      )}
       <S.MovieRowsContainer>
         {list.map((info) => {
           return <Row row={info} key={info.slug} />;

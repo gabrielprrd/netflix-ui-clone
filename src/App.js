@@ -1,9 +1,10 @@
 // Pages
 import Home from './pages/Home/index';
 import Register from './pages/Register/index';
+import Movie from './pages/Movie/index';
 
 // Routing
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Style
 import GlobalStyle from './assets/globalStyles';
@@ -19,10 +20,13 @@ function App() {
         <Router>
           <div>
             <Switch>
-              <Route path="/register">
+              <Route exact path="/register">
                 <Register />
               </Route>
-              <Route path="/">
+              <Route exact path="/watch/:id">
+                <Movie />
+              </Route>
+              <Route exact path="/">
                 <Home />
               </Route>
             </Switch>

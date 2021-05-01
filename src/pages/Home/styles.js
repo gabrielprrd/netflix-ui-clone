@@ -5,3 +5,11 @@ export const MovieRowsContainer = styled.div`
   margin-top: -140px;
   z-index: 99;
 `;
+
+export const LoadingIconContainer = styled.div`
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

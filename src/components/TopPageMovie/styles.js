@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HighlightedMovieContainer = styled.div`
   position: relative;
-  transition: all linear 2s;
   top: 0;
   left: 0;
   width: 100vw;
@@ -11,6 +10,7 @@ export const HighlightedMovieContainer = styled.div`
   background-position: center;
   background-image: ${({ backdrop_path }) =>
     `url(https://image.tmdb.org/t/p/original${backdrop_path})`};
+  transition: all linear 2s;
 
   * {
     z-index: 0;
