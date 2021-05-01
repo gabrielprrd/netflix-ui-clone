@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as S from './styles';
 
@@ -7,7 +7,6 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
   } = useForm({ criteriaMode: 'all' });
 
   const submitForm = (data) => {

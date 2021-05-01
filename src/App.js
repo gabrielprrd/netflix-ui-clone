@@ -3,6 +3,10 @@ import Home from './pages/Home/index';
 import Register from './pages/Register/index';
 import Movie from './pages/Movie/index';
 
+// Components
+import Footer from './components/Footer/index';
+import Header from './components/Header/index';
+
 // Routing
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -17,6 +21,7 @@ function App() {
     <div className="App">
       <SelectedMovieProvider>
         <GlobalStyle />
+        <Header />
         <Router>
           <div>
             <Switch>
@@ -32,6 +37,7 @@ function App() {
             </Switch>
           </div>
         </Router>
+        <Footer />
       </SelectedMovieProvider>
     </div>
   );

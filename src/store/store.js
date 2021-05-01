@@ -8,7 +8,7 @@ const getList = async (endpoint) => {
   return json;
 };
 
-export default {
+const store = {
   getHomeList: async () => {
     return [
       {
@@ -74,3 +74,5 @@ export default {
     return info;
   },
 };
+
+export default store;

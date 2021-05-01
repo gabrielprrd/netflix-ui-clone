@@ -7,20 +7,21 @@ export const Header = styled.header`
   left: 0;
   right: 0;
   justify-content: space-between;
+  align-items: center;
   background-color: ${({ headerColor }) => headerColor};
-  padding: 20px;
+  padding: 10px 20px;
   z-index: 99;
   transition: all ease 0.5s;
 `;
 
 export const LogoContainer = styled.div`
   img {
-    height: 4rem;
+    height: 60px;
   }
 `;
 
 export const AvatarContainer = styled.div`
   img {
-    height: 3rem;
+    height: 50px;
   }
 `;

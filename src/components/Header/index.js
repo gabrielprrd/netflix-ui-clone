@@ -21,6 +21,7 @@ export default function Header() {
     return () => {
       window.removeEventListener('scroll', checkYPosition);
     };
+    // eslint-disable-next-line
   }, [window.scrollY]);
 
   return (

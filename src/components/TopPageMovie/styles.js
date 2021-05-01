@@ -17,8 +17,6 @@ export const HighlightedMovieContainer = styled.div`
   }
 `;
 
-export const BgContainer = styled.div``;
-
 export const BgOverrideContainer = styled.div`
   position: absolute;
   width: 100%;

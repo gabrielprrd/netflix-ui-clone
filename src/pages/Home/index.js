@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 // Components
-import Header from '../../components/Header';
 import Row from '../../components/Row/index';
 import TopPageMovie from '../../components/TopPageMovie/index';
 
@@ -43,11 +42,10 @@ export default function Home() {
     }
 
     fetchData();
-  }, []);
+  }, [setSelectedMovie]);
 
   return (
     <>
-      <Header />
       {isSelectedMovieReady ? (
         <TopPageMovie />
       ) : (

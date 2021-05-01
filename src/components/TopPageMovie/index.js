@@ -54,7 +54,15 @@ export default function TopPageMovie() {
                 <S.WatchButton>Watch</S.WatchButton>
               </Link>
 
-              <S.AddToListButton>+ My List</S.AddToListButton>
+              <Link
+                to={{
+                  // later change to a post method that saves it through a rest api
+                  pathname: `/watch/${id}`,
+                  state: { movie: { title, backdrop_path } },
+                }}
+              >
+                <S.AddToListButton>+ My List</S.AddToListButton>
+              </Link>
             </S.ButtonsContainer>
           </S.TextContainer>
         </S.BgOverrideContainerVertical>

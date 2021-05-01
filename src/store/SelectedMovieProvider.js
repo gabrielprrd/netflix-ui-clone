@@ -1,8 +1,5 @@
 // Provides the movie that is selected and hightlighted
-import React, { useState, useEffect, createContext } from 'react';
-
-// Store
-import store from '../store/store';
+import React, { useState, createContext } from 'react';
 
 export const SelectedMovieContext = createContext();
 
