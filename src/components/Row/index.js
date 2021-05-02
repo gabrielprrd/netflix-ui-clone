@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 
 // Styles
 import * as S from './styles';
@@ -12,29 +12,56 @@ import { SelectedMovieContext } from '../../store/SelectedMovieProvider';
 
 // Store
 import store from '../../store/store';
-//import MovieContainer from './MovieContainer';
 
 export default function Row({ row }) {
   const [rowPosition, setRowPosition] = useState(0);
+  const [rowWidth, setRowWidth] = useState(0); // in vw
   const { setSelectedMovie } = useContext(SelectedMovieContext);
+  const posterRef = useRef(null);
 
+  // set movie to TopPageMovie element
   const selectMovie = (id) => {
     store.getMovieInfo(id).then((data) => setSelectedMovie(data));
   };
 
+  // Pixel to viewport unit converter
+  function convertPXToVW(px) {
+    return Math.round(px * (100 / document.documentElement.clientWidth));
+  }
+
+  useEffect(() => {
+    if (posterRef.current) {
+      //row size in pixels
+      const rowSizeInPixels =
+        posterRef.current.offsetWidth * row.items.results.length;
+
+      // convert row size to vws
+      const rowSizeInVws = convertPXToVW(rowSizeInPixels);
+      setRowWidth(rowSizeInVws);
+    }
+  }, [posterRef]);
+
   const handleBeforeIconClick = () => {
+    let windowInVw = convertPXToVW(window.innerWidth);
+
     if (rowPosition >= 0) {
       setRowPosition(0);
       return;
     }
-    setRowPosition(rowPosition + 50);
+    setRowPosition(rowPosition + windowInVw);
   };
 
   const handleNextIconClick = () => {
-    if (rowPosition <= -200) {
+    let windowInVw = convertPXToVW(window.innerWidth);
+
+    let remainingRowWidth = rowWidth + rowPosition;
+
+    if (remainingRowWidth <= 130) {
+      setRowPosition(-rowWidth + windowInVw);
       return;
+    } else {
+      setRowPosition(rowPosition - windowInVw);
     }
-    setRowPosition(rowPosition - 50);
   };
 
   return (
@@ -51,7 +78,11 @@ export default function Row({ row }) {
           const { id, name, poster_path } = item;
 
           return (
-            <S.MovieContainer key={id} onClick={() => selectMovie(id)}>
+            <S.MovieContainer
+              key={id}
+              onClick={() => selectMovie(id)}
+              ref={posterRef}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
                 alt={name}

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import device from '../../assets/device';
 
 export const MovieRowOuterContainer = styled.div`
   position: relative;
@@ -40,6 +41,11 @@ export const MovieContainer = styled.div`
 
   img {
     display: block;
+    width: 15vw;
+
+    @media ${device.tablet} {
+      width: 40vw;
+    }
   }
 
   &&:focus,

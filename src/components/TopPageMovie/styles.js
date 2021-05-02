@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import device from '../../assets/device';
 
 export const HighlightedMovieContainer = styled.div`
   position: relative;
@@ -52,6 +53,10 @@ export const TextContainer = styled.div`
 
   * {
     margin-bottom: 10px;
+  }
+
+  @media ${device.tablet} {
+    width: 100vw;
   }
 `;
 
