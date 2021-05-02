@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import device from '../../assets/device';
 import bgImage from '../../assets/img/netflix-login-background.jpg';
 
 export const FormWrapper = styled.div`
@@ -12,13 +13,6 @@ export const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const StyledInput = styled.input``;
 
 export const StyledForm = styled.form`
   display: flex;
@@ -43,6 +37,10 @@ export const StyledForm = styled.form`
   /* Submit button */
   input[type='submit'] {
     margin-top: 20px;
+  }
+
+  @media ${device.tablet} {
+    width: 90vw;
   }
 `;
 
