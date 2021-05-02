@@ -25,9 +25,25 @@ export const StyledForm = styled.form`
   width: 600px;
   flex-direction: column;
   justify-content: space-between;
-  background-color: black;
+  background-color: white;
   border-radius: 5px;
   padding: 20px;
+
+  /* Margin between Material UI inputs without the need to import useStyles */
+  & > div {
+    margin-top: 20px;
+  }
+
+  /* Error messages */
+  p {
+    color: red;
+    margin-top: 4px;
+  }
+
+  /* Submit button */
+  input[type='submit'] {
+    margin-top: 20px;
+  }
 `;
 
 export const SubmitButton = styled.input`

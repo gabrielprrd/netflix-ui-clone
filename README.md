@@ -7,6 +7,7 @@ Single Page Application cloning Netflix's UI, with couple changes.
 - React
 - React Router
 - Styled-Components
+- Material UI
 - React-Hook-Form
 - Yup
 - TMDb (The Movie Database) API
@@ -24,16 +25,11 @@ $ npm start
 
 ## Todo:
 
-- Add GlobalStyles variables instead of magic colors and numbers
-- Fix header behavior on scroll
-- Fix movie row behavior
-- Make Responsive
-- Style Register form
-- Turn register page as Home and then redirect to the movies after fake login, for now
 - Integrate validation with Yup when I need schema validation
-- Footer with credits
+- Add GlobalStyles variables instead of magic colors and numbers
 - Move background gradient layers to globalstyles
-- Page not found
-- Refactor to Typescript if I have the courage
+- Turn register page as Home and then redirect to the movies after fake login, for now
+- "Search movies" functionality
+- Refactor to Typescript
 
 **Keep coding!**

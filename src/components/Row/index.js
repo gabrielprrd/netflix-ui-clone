@@ -39,7 +39,7 @@ export default function Row({ row }) {
       const rowSizeInVws = convertPXToVW(rowSizeInPixels);
       setRowWidth(rowSizeInVws);
     }
-  }, [posterRef]);
+  }, [posterRef, row.items.results.length]);
 
   const handleBeforeIconClick = () => {
     let windowInVw = convertPXToVW(window.innerWidth);
